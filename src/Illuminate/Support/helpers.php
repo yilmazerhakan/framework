@@ -561,6 +561,20 @@ if (! function_exists('dd')) {
     }
 }
 
+if (! function_exists('ddi')) {
+    /**
+     * Dump the passed variables with called file and line information.
+     *
+     * @param  mixed  $args
+     * @return void
+     */
+    function ddi(...$args)
+    {
+        $debug = debug_backtrace();
+        dd($args, isset($debug[0]) ? $debug[0] : null );
+    }
+}
+
 if (! function_exists('e')) {
     /**
      * Escape HTML special characters in a string.
